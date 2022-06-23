@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
-    "cli-table": "^0.3.11",
-    "esm": "^3.2.25"
+    "cli-table": "^0.3.11"
   }
 }
