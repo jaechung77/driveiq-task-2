@@ -2,20 +2,20 @@
 const util = require('./util');
 const validation = require('./validation');
 
-const categoryInput = process.argv[2];
-const limitInput = process.argv[3];
+const category = process.argv[2];
+const limit = process.argv[3];
 
-validation.checkCategoryInput(categoryInput);
-validation.checkLimitInput(limitInput);
+validation.checkCategoryInput(category);
+validation.checkLimitInput(limit);
 
 executeAsyncTask();
 
 async function executeAsyncTask() {
-  const entries = await util.getData(categoryInput, limitInput);
+  const entries = await util.getData(category, limit);
   const tableHeader = util.formatTableHeader();
   const table = await util.pushIntoTable(entries, tableHeader);
   console.log(
-    `\nRequested Category is ${categoryInput} and Limited to ${limitInput}\n\n`
+    `\nRequested Category is ${category} and Limited to ${limit}\n\n`
   );
   console.log(entries.length === 0 ? 'No Results\n' : table.toString());
 }
